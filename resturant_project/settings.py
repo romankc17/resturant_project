@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     
     'frontend',
+    'resturant',
     
 ]
 
@@ -78,8 +79,14 @@ WSGI_APPLICATION = 'resturant_project.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'djongo',
+        "CLIENT": {
+           "name": 'mydb',
+           "host": 'mongodb+srv://roman:pas123@cluster0.oxndg.mongodb.net/mydb?retryWrites=true&w=majority',
+           "username": 'roman',
+           "password": 'pass123',
+           "authMechanism": "SCRAM-SHA-1",
+        },
     }
 }
 
