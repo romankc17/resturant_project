@@ -11,5 +11,6 @@ router.register('images',views.ImagesView)
 
 urlpatterns = [
     path('all_',include(router.urls)),
-    path('',views.ResturantListView.as_view())
+    path('',views.ResturantListView.as_view()),
+    path('<int:id>/',views.ResturantView.as_view())
 ]

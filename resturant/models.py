@@ -46,7 +46,7 @@ class Menu(models.Model):
     resturant = models.ForeignKey(Resturant,on_delete=models.CASCADE,related_name='menus')
     item=models.CharField(max_length=50)
     item_photo = models.ImageField(upload_to=get_menu_image_filename,null=True,blank=True)
-    item_type=models.ForeignKey(ItemType,on_delete=models.CASCADE,related_name='item_types')
+    item_type=models.ForeignKey(ItemType,on_delete=models.CASCADE)
     price=models.IntegerField()
 
 def get_resturant_image_filename(instance, filename):

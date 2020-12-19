@@ -6,16 +6,10 @@ class ImageSerializer(serializers.ModelSerializer):
         model=Images
         fields=('id','image')
 
-class ItemTypeSerializer(serializers.ModelSerializer):
-    class Meta:
-        model=ItemType
-        fields='__all__'
-
 class MenuSerializer(serializers.ModelSerializer):
-    item_types=ItemTypeSerializer(many=True,read_only=True)
     class Meta:
         model = Menu
-        fields=('id','item','item_photo','price','item_types')
+        fields='__all__'
 
 class AddressSerializer(serializers.ModelSerializer):
     class Meta:
@@ -28,7 +22,9 @@ class ResturantSerializer(serializers.ModelSerializer):
     menus=MenuSerializer(many=True,read_only=True)
     class Meta:
         model=Resturant
-        fields=('id','description','cover_photo','address','images','menus')
+        fields=('id','description','cover_photo','address','images','menus',)
+
+
 
 
 
