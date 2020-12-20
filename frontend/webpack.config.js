@@ -1,3 +1,4 @@
+import "style-loader!css-loader?modules!./styles.css";
 const path = require("path");
 const webpack = require("webpack");
 
@@ -15,6 +16,10 @@ module.exports = {
         use: {
           loader: "babel-loader",
         },
+      },
+      {
+        test: /\.css$/i,
+        use: ["style-loader", "css-loader"],
       },
     ],
   },

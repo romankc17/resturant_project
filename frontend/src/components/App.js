@@ -1,22 +1,20 @@
 import React, { Component } from "react";
 import { render } from "react-dom";
+import Home from "./layouts/Home";
 
 export default class App extends Component {
   constructor(props) {
     super(props);
   }
 
-  render(){
+  render() {
     return (
-      <div className='center'>
-        Hello World!
+      <div className="center">
+        <Home />
       </div>
     );
-  };
+  }
 }
 
-
-
-
 const appDiv = document.getElementById("app");
-render(<App />,appDiv);
+render(<App />, appDiv);
