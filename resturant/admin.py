@@ -9,13 +9,13 @@ class MenuInline(admin.StackedInline):
     model=Menu
     extra = 0
 
-
-# class AddressInline(admin.StackedInline):
-#     model = Address
+class ImagesInline(admin.StackedInline):
+    model = Images
+    extra = 0
 
 class ResturantAdmin(admin.ModelAdmin):
-    list_display=('name','address','stars_average')
-    inlines = [MenuInline,ReviewsInline]
+    list_display=('name','address','contact','show_average_ratings')
+    inlines = [MenuInline,ImagesInline,ReviewsInline]
 
-# admin.site.register([Resturant,Address,Menu,ItemType,Images])
+admin.site.register([Address,ItemType,])
 admin.site.register(Resturant,ResturantAdmin)
