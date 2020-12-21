@@ -1,21 +1,21 @@
 from django.contrib import admin
-from .models import Resturant,Address,Menu,ItemType,Images
+from .models import *
 
+class ReviewsInline(admin.StackedInline):
+    model = Review
+    extra=0
 
 class MenuInline(admin.StackedInline):
     model=Menu
     extra = 0
 
-# class AddressInline(admin.StackedInline):
-#     model = Address
+class ImagesInline(admin.StackedInline):
+    model = Images
+    extra = 0
 
 class ResturantAdmin(admin.ModelAdmin):
-    fieldsets = [
-        (None,{'fields':['name']}),
-        ('Bio',{'fields':['description']}),
-        ('Address',{'fields':['address']}),
-    ]
-    inlines = [MenuInline]
+    list_display=('name','address','contact','show_average_ratings')
+    inlines = [MenuInline,ImagesInline,ReviewsInline]
 
-admin.site.register([Resturant,Address,Menu,ItemType,Images])
-# admin.site.register(Resturant,ResturantAdmin)
+admin.site.register([Address,ItemType,])
+admin.site.register(Resturant,ResturantAdmin)
