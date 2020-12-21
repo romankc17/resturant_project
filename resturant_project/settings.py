@@ -80,21 +80,21 @@ WSGI_APPLICATION = 'resturant_project.wsgi.application'
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
 DATABASES = {
-    # 'default': {
-    #     'ENGINE': 'djongo',
-    #     "CLIENT": {
-    #        "name": 'mydb',
-    #        "host": 'mongodb+srv://roman:pas123@cluster0.oxndg.mongodb.net/mydb?retryWrites=true&w=majority',
-    #        "username": 'roman',
-    #        "password": 'pass123',
-    #        "authMechanism": "SCRAM-SHA-1",
-    #     },
-    # }
-
-    'default':{
-        'ENGINE':'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    'default': {
+        'ENGINE': 'djongo',
+        "CLIENT": {
+           "name": 'mydb',
+           "host": 'mongodb+srv://roman:pas123@cluster0.oxndg.mongodb.net/mydb?retryWrites=true&w=majority',
+           "username": 'roman',
+           "password": 'pass123',
+           "authMechanism": "SCRAM-SHA-1",
+        },
     }
+
+    # 'default':{
+    #     'ENGINE':'django.db.backends.sqlite3',
+    #     'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    # }
 }
 
 
