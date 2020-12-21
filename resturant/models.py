@@ -57,6 +57,11 @@ class Resturant(models.Model):
             return 0
     show_average_ratings.short_description = 'Ratings'
 
+class Feature(models.Model):
+    feature=models.TextField(max_length=100,blank=True)
+    resturant=models.ForeignKey(Resturant,on_delete=models.CASCADE,related_name='features')
+
+
 class Review(models.Model):
     user = models.ForeignKey(User,on_delete=models.SET_NULL,null=True)
     resturant = models.ForeignKey(Resturant,on_delete=models.CASCADE,related_name='reviews')
