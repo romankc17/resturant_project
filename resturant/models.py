@@ -14,6 +14,16 @@ class Address(models.Model):
     class Meta:
         verbose_name_plural = "Addresses"
 
+class PhoneNumber(models.Model):
+    number=models.CharField(max_length=10,blank=True)
+
+class Contact(models.Model):
+    facebook=models.URLField(max_length=100,blank=True)
+    instagram=models.URLField(max_length=100,blank=True)
+    email = models.EmailField(blank=True,max_length=100)
+    phone_number=models.ForeignKey(PhoneNumber,on_delete=models.CASCADE)
+    website=models.URLField(max_length=100,blank=True)
+
 def get_cover_image_filename(instance, filename):
     title = instance.name
     slug = slugify(title)
@@ -24,8 +34,11 @@ class Resturant(models.Model):
     name = models.CharField(max_length=50)
     description = models.TextField(max_length=500,blank=True)
     cover_photo=models.ImageField(upload_to=get_cover_image_filename)
-
+    delivery_availabel = models.BooleanField(default=False)
     address = models.OneToOneField(Address, on_delete=models.CASCADE,related_name='address')
+    open_time = models.TimeField(blank=True,null=True)
+    close_time = models.TimeField(blank=True,null=True)
+    contact = models.OneToOneField(Contact,null=True,on_delete=models.CASCADE)
 
     def __str__(self):
         return self.name

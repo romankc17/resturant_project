@@ -2,6 +2,7 @@ from django.contrib import admin
 from .models import Resturant,Address,Menu,ItemType,Images
 
 
+
 class MenuInline(admin.StackedInline):
     model=Menu
     extra = 0
@@ -10,6 +11,7 @@ class MenuInline(admin.StackedInline):
 #     model = Address
 
 class ResturantAdmin(admin.ModelAdmin):
+    list_display=('name','address')
     fieldsets = [
         (None,{'fields':['name']}),
         ('Bio',{'fields':['description']}),
@@ -17,5 +19,5 @@ class ResturantAdmin(admin.ModelAdmin):
     ]
     inlines = [MenuInline]
 
-admin.site.register([Resturant,Address,Menu,ItemType,Images])
-# admin.site.register(Resturant,ResturantAdmin)
+# admin.site.register([Resturant,Address,Menu,ItemType,Images])
+admin.site.register(Resturant,ResturantAdmin)
