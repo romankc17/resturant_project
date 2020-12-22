@@ -14,8 +14,8 @@ class ImagesInline(admin.StackedInline):
     extra = 0
 
 class ResturantAdmin(admin.ModelAdmin):
-    list_display=('name','address','contact','show_average_ratings')
+    list_display=('name','address','show_average_ratings')
     inlines = [MenuInline,ImagesInline,ReviewsInline]
 
-admin.site.register([Address,ItemType,])
+admin.site.register([Address,ItemType,Review,Contact])
 admin.site.register(Resturant,ResturantAdmin)

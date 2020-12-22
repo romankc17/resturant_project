@@ -16,15 +16,18 @@ class Address(models.Model):
     class Meta:
         verbose_name_plural = "Addresses"
 
+
 class Contact(models.Model):
-    phoneNumber=models.CharField(max_length=10,blank=True)
+    phoneNumber=models.CharField(max_length=15)
     facebook=models.URLField(max_length=100,blank=True)
     instagram=models.URLField(max_length=100,blank=True)
     email = models.EmailField(blank=True,max_length=100)
     website=models.URLField(max_length=100,blank=True)
 
     def __str__(self):
-        return self.number
+        return self.phoneNumber
+
+
 
 def get_cover_image_filename(instance, filename):
     title = instance.name
@@ -48,7 +51,7 @@ class Resturant(models.Model):
     def show_average_ratings(self):
         sum=0
         n=0
-        for review in self.review_set.all():
+        for review in self.reviews.all():
             sum += review.stars
             n += 1
         if n != 0:
