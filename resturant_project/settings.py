@@ -83,8 +83,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'djongo',
         "CLIENT": {
-           "name": 'mydb',
-           "host": 'mongodb+srv://roman:pas123@cluster0.oxndg.mongodb.net/mydb?retryWrites=true&w=majority',
+           "name": 'resturant_db',
+           "host": 'mongodb+srv://roman:pas123@cluster0.oxndg.mongodb.net/resturant_db?retryWrites=true&w=majority',
            "username": 'roman',
            "password": 'pass123',
            "authMechanism": "SCRAM-SHA-1",

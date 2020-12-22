@@ -6,11 +6,11 @@ __pycache__/
 
 .vscode
 # Byte-compiled / optimized / DLL files
-**/__pycache__/
+*/__pycache__
 resturant/__pycache__/
 **/*.pyc
-**/migrations/
->>>>>>> newmodels
+*/migrations
+
 
 # Installer logs
 pip-log.txt
