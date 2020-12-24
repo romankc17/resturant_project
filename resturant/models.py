@@ -35,15 +35,15 @@ def get_cover_image_filename(instance, filename):
     return "%s/cover_image/%s" % (slug, filename)
 
 class Resturant(models.Model):
-    user = models.OneToOneField(User,on_delete=models.CASCADE)
+    user = models.OneToOneField(User,on_delete=models.CASCADE,null=True,blank=True)
     name = models.CharField(max_length=50)
     description = models.TextField(max_length=500,blank=True)
     cover_photo=models.ImageField(upload_to=get_cover_image_filename)
-    address = models.OneToOneField(Address, on_delete=models.CASCADE,related_name='address',null=True,blank=True)
+    address = models.OneToOneField(Address, on_delete=models.SET_NULL,related_name='address',null=True,blank=True,default=None)
     delivery_available = models.BooleanField(default=False)
     open_time = models.TimeField(blank=True,null=True)
     close_time = models.TimeField(blank=True,null=True)
-    contact = models.OneToOneField(Contact,null=True,on_delete=models.CASCADE,blank=True,related_name='contact')
+    contact = models.OneToOneField(Contact,null=True,on_delete=models.SET_NULL,blank=True,related_name='contact',default=None)
 
     def __str__(self):
         return self.name
